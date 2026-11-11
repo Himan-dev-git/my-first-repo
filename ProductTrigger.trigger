@@ -1,0 +1,9 @@
+trigger ProductTrigger on Product2 (after insert, after update) {
+    if (Trigger.isAfter && Trigger.isInsert) {
+        ProductTriggerHandler.handleAfterInsert(Trigger.new);
+    }
+
+    if (Trigger.isAfter && Trigger.isUpdate) {
+        ProductTriggerHandler.handleAfterUpdate(Trigger.new, Trigger.oldMap);
+    }
+}
